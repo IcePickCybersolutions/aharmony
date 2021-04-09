@@ -1,4 +1,3 @@
-
 # function to take user's code, print it out, then put it in a file
 def outputcode():
 	print("Your code is %s" % codeline)
@@ -7,6 +6,7 @@ def outputcode():
 	continueorend = input("Are more actions necessary?: ")
 
 
+# just a fancy intro screen
 print(r'''\
         _
        | |
@@ -55,6 +55,7 @@ if initiateprog == yes or y:
 			codeline = subprocess.Popen(r"%s" % ofile)
 			outputcode()
 		
+		# windows is annoying for code, so this takes control of the keyboard to open a file with administrator privileges
 		elif command == "adminopenfile":
 			afile = input("What program do you want admin to open?: ")
 			codeline = (''' pyautogui.keyDown('winright')
@@ -96,8 +97,10 @@ if initiateprog == yes or y:
 			os.system("python %s")''' %s pylocate, %s pyname)
 			outputcode()
 
+		# if the user asks for something that's not on the menu we kindly ask for them to submit a formal complaint
 		else: print("That doesn't seem to be one of our commands, if you want to request a feature feel free to drop a comment on my github")
-		
+
+# if user doesn't give OK, script ends		
 else:
 	print("See ya later")
 	exit()
